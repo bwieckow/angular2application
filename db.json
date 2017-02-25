@@ -16,14 +16,9 @@
       "id": 3
     },
     {
-      "name": "TESLA Inc.",
+      "name": "TESLA Motors",
       "stockCode": "TSLA",
       "id": 4
-    },
-    {
-      "name": "Hewlett Packard ",
-      "stockCode": "HPQ",
-      "id": 5
     }
   ]
 }
