@@ -1,3 +1,8 @@
+<div class="p-a-2" style="padding: 10px">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">CREATE</button>
+</div>
+
+
 <div class="m-x-auto p-a-2 m-t-2" style="width: 800px" *ngIf="updateEnabled">
   Stock Code: <input #updateStockCode [value]="selectedStock.stockCode"/>
   Stock Name: <input #updateName [value]="selectedStock.name"/>
@@ -5,8 +10,8 @@
   <button type="button" class="btn btn-warning" (click)="updateStock(updateStockCode.value, updateName.value)">UPDATE</button>
 </div>
 
-<div class="m-x-auto p-a-2" style="width: 900px;">
-  <table class="table table-striped table-inverse table-hover table-sm" align="center">
+<div class="m-x-auto p-a-2" style="padding: 20px">
+  <table class="table table-striped table-inverse table-hover table-sm rounded" align="center">
     <thead>
       <tr>
         <th>#</th>
@@ -28,10 +33,44 @@
   </table>
 </div>
 <hr>
-<h2>ADD STOCK</h2>
-Stock Code: <input #newStockCode/>
-Stock Name: <input #newName/>
-<button type="button" class="btn btn-primary" (click)="createStock(newStockCode.value, newName.value)">CREATE</button>
+
+
+
+<!-- Create Modal HTML Template -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a New Stock</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <tr>
+          <td>Stock Code: </td>
+          <td style="width: 50%"><input #newStockCode/></td>
+        </tr>
+        <tr>
+          <td>Stock Name: </td>
+          <td><input #newName/></td>
+        </tr>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"
+                (click)="createStock(newStockCode.value, newName.value);newStockCode.value='';newName.value=''"
+                data-dismiss="modal"
+        >Add Stock</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END -->
 
 <div class="jumbotron">
     <h1 class="display-3">Angular 2 Finance</h1>
